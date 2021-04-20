@@ -1,16 +1,10 @@
-
-<img style="width: 50%; margin-left: 25%;" src="./src/assets/img/logo570x220.png" alt="All Teeth Matter Co">
-
-_All Teeth Matter Co website & build tools_ 
-
-
 ## Installation
 
 Project uses node server environment. If you haven't already, install [Node.js](https://nodejs.org/en/download/) 
 - To verify Node installation, enter at command line: `node --version`
 1. Download repository and unzip
 2. Install dependencies:
-   - Using Command Line (Win: cmd or powershell, Mac: terminal) navigate to application directory e.g. `cd downloads/allteethmatterco`
+   - Using Command Line (Win: cmd or powershell, Mac: terminal) navigate to application directory e.g. `cd downloads/ROICalc`
    - From within application directory, enter at command line: `npm i`  
    
 <div style="width: 90%; margin: auto; padding-top: 1em; border-bottom: 2px solid #eeeeee"></div>

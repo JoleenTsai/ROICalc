@@ -1,8 +1,8 @@
 {
-  "name": "allteethmatterco",
+  "name": "ROICalc",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf build && mkdir build && cd publish/assets && rimraf js css && mkdir js css",
@@ -15,22 +15,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joleentsai/allteethmatterco.git"
+    "url": "git+https://github.com/joleentsai/ROICalc.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joleentsai/allteethmatterco/issues"
+    "url": "https://github.com/joleentsai/ROICalc/issues"
   },
-  "homepage": "https://github.com/joleentsai/allteethmatterco",
+  "homepage": "https://github.com/joleentsai/ROICalc",
   "dependencies": {},
   "browserslist": [
     ">0.2% in US",
     "not ie <= 10"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
+    "@babel/cli": "^7.13.16",
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "autoprefixer": "^9.7.4",
