@@ -12,47 +12,113 @@
 </head>
 
 <body>
-
-    <div class="container-sm" style="padding: 20px;">
+    <div class="container" style="padding: 20px;">
         <h1>Current Solution</h1>
         <div class="row">
-            <div class="card" style="width: 20rem; margin: 10px;">
+            <div class="card" style="width: 25rem; margin: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">Phone Payments</h5>
                     <p class="card-text">How many minutes does it take on average when you call a patient for a payment?
                     </p>
-                    <input type="text" class="form-control" id="phoneMin" placeholder="5 min">
+                    <input type="text" class="form-control" id="callMin" placeholder="5 min"
+                        onkeyup="phonePayment()">
                     <p class="card-text">How many patients do you call on average per week?
                     </p>
-                    <input type="text" class="form-control" id="phonePatients" placeholder="20 patients">
+                    <input type="text" class="form-control" id="callPatients" placeholder="20 patients"
+                        onkeyup="phonePayment()">
+                    <p class="card-text">How many minutes does it take on average when a patient calls to make a
+                        payment?
+                    </p>
+                    <input type="text" class="form-control" id="patientCallMin" placeholder="5 min"
+                        onkeyup="phonePayment()">
+                    <p class="card-text">How many patients call on average per week?
+                    </p>
+                    <input type="text" class="form-control" id="patientsCall" placeholder="10 patients"
+                        onkeyup="phonePayment()">
                 </div>
             </div>
-            <div class="card" style="width: 20rem; margin: 10px;">
+            <div class="card" style="width: 25rem; margin: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">Data Entry</h5>
+                    <p class="card-text">How many payments do you process per week?</p>
+                    <input type="text" class="form-control" id="dataEntryPayments" placeholder="500 payments" onkeyup="dataEntry()">
                     <p class="card-text">Is your current solution integrated?</p>
-                    <input type="text" class="form-control" id="dataEntryHours" placeholder="10 hours">
-                    <p class="card-text">Do you have to do double data entry for your eHR and Billing module for patient
-                        payments?</p>
-                    <input type="text" class="form-control" id="doubleDataEntrry" placeholder="10 hours">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="integrated" id="integratedYes" value="Yes" onkeyup="dataEntry()">
+                        <label class="form-check-label" for="integratedYes">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="integrated" id="integratedNo" value="No" onkeyup="dataEntry()" checked>
+                        <label class="form-check-label" for="integratedNo">
+                            No
+                        </label>
+                    </div>
                     <p class="card-text">How many cards do you typically enter in manually per week?</p>
-                    <input type="text" class="form-control" id="dataEntryHours" placeholder="10 hours">
+                    <input type="text" class="form-control" id="dataEntryCards" placeholder="10 cards" onkeyup="dataEntry()">
                     <p class="card-text">How many card errors occur when running charges weekly?</p>
-                    <input type="text" class="form-control" id="dataEntryHours" placeholder="10 hours">
-
+                    <input type="text" class="form-control" id="dataEntryCardErrors" placeholder="3 errors" onkeyup="dataEntry()">
                 </div>
             </div>
-            <div class="card" style="width: 20rem; margin: 10px;">
+            <div class="card" style="width: 25rem; margin: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">Delivery Charges per Week</h5>
+
+                    <p class="card-text">How many text statements do you send and how much do you pay per text?</p>
+                    <div class="row">
+                        <div class="col"><input type="text" class="form-control" id="sentText"
+                                placeholder="100 statements" onkeyup="deliveryMethod()"></div>
+                        <div class="col"><input type="text" class="form-control" id="textPay"
+                                placeholder="$0.01 per text" onkeyup="deliveryMethod()"></div>
+                    </div>
+                    <p class="card-text">How much do you pay to send email statements?</p>
+                    <div class="row">
+                        <div class="col"><input type="text" class="form-control" id="sentEmail"
+                                placeholder="100 statements" onkeyup="deliveryMethod()"></div>
+                        <div class="col"><input type="text" class="form-control" id="emailPay"
+                                placeholder="$0.01 per email" onkeyup="deliveryMethod()"></div>
+                    </div>
+                    <p class="card-text">How many mail statements do you print and stuff per week?</p>
+                    <input type="text" class="form-control" id="mailTime" placeholder="100 statements" onkeyup="deliveryMethod()">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding: 20px;">
+        <h1>Kareo Patient Collect</h1>
+        <div class="row">
+            <div class="card" style="width: 25rem; margin: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">Phone Payments</h5>
+                    <p class="card-text">With our Card on File via Patient Intake, you will save </p>
+                    <h5 id="phoneMin">XX minutes</h5>
+                    <p> on the phone
+                        each week or </p>
+                    <h5 id="phoneHour">XX hours per month!</h5>
+                </div>
+            </div>
+            <div class="card" style="width: 25rem; margin: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">Data Entry</h5>
+                    <p class="card-text">With a fully integrated solution, you will save</p>
+                    <h5 id="dataEntryHour">XX hours per week!</h5>
+                </div>
+            </div>
+            <div class="card" style="width: 25rem; margin: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">Delivery Charges</h5>
-                    <p class="card-text">How much do you pay to send text statements?</p>
-                    <input type="text" class="form-control" id="textPay" placeholder="$0.01 per text">
-                    <p class="card-text">How much do you pay to send email statements?</p>
-                    <input type="text" class="form-control" id="emailPay" placeholder="$0.01 per email">
-                    <p class="card-text">How much do you pay to send mail house statements?</p>
-                    <input type="text" class="form-control" id="mailPay" placeholder="$1.00 per mailed statement">
-                    <p class="card-text">How long do you spend printing and stuffing mail statements per week?</p>
-                    <input type="text" class="form-control" id="mailTime" placeholder="4 hours">
+                    <p class="card-text">With unlimited free text and email statements, you will save </p>
+                    <h5 id="deliveryWeek">$XX per week</h5>
+                    <p> or
+                    </p>
+                    <h5 id="deliveryYear">$XX per year!</h5>
+                    <p>You will also save </p>
+                    <h5 id="staffHours"> XX hours per week</h5>
+                    <p> for your front office staff, which can translate to</p>
+                    <h5 id="staffMoney"> $XX per year!</h5>
+                    <p class="text-muted" style="font-size: 12px;">*estimate based on current postage pricing and average hourly pay
+                        for front office staff</p>
                 </div>
             </div>
         </div>
@@ -60,6 +126,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
+    <script>
+        function phonePayment() {
+            phone1 = document.getElementById("callMin").value;
+            phone2 = document.getElementById("callPatients").value;
+            phone3 = document.getElementById("patientCallMin").value;
+            phone4 = document.getElementById("patientsCall").value;
+            phoneFinal = Number(phone1 * phone2) + Number(phone3 * phone4)
+            document.getElementById("phoneMin").innerHTML = phoneFinal.toLocaleString("en-US", { maximumFractionDigits: 0 }) + ' minutes';
+            document.getElementById("phoneHour").innerHTML = (Number(phoneFinal / 60) * 4).toLocaleString("en-US", { maximumFractionDigits: 1 }) + ' hours per month!';
+        console.log(phone1, phone2, phoneFinal)
+        }
+        function dataEntry() {
+            dataEntry1 = document.getElementById("dataEntryPayments").value;
+            dataEntry2 = document.getElementById("dataEntryCards").value;
+            dataEntry3 = dataEntry2*3
+            dataEntry3 = document.getElementById("dataEntryCardErrors").value;
+            let dataEntryFinal
+            if (document.getElementById("integratedYes").checked == true) {
+                dataEntryValues = Number(dataEntry1) + Number(dataEntry2 * 3) + Number(dataEntry3 * 5)
+                dataEntryFinal = Number(dataEntryValues/60)
+            }
+            else {
+                dataEntryValues = Number(dataEntry1 * 2) + Number(dataEntry2 * 3) + Number(dataEntry3 * 5)
+                dataEntryFinal = Number(dataEntryValues/60)
+            }
+            document.getElementById("dataEntryHour").innerHTML = dataEntryFinal.toLocaleString("en-US", {maximumFractionDigits: 1} ) + ' hours per week!';
+            return
+        }
+        function deliveryMethod() {
+            delivery1 = document.getElementById("sentText").value;
+            delivery2 = document.getElementById("textPay").value;
+            delivery3 = document.getElementById("sentEmail").value;
+            delivery4 = document.getElementById("emailPay").value;
+            delivery5 = document.getElementById("mailTime").value;
+            delivery6 = ((Number(delivery5 * 5) / 60) * 15) * 52
+            let deliveryWeek
+            if (Number(delivery1 * delivery2) + Number(delivery3 + delivery4) > 0) {
+                deliveryWeek = Number(delivery1 * delivery2) + Number(delivery3 * delivery4)
+            } else {
+                deliveryWeek = 0
+            }
+            let deliveryYear = deliveryWeek * 52
+            //3.05 = (5 min per statement * $15/hourlywage) + $0.55 for postage + $.01 for paper
+            document.getElementById("deliveryWeek").innerHTML = '$' + deliveryWeek.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) + ' per week';
+            document.getElementById("deliveryYear").innerHTML = '$' + deliveryYear.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) + ' per year!';
+            document.getElementById("staffHours").innerHTML = ((Number(delivery5) * 5) / 60).toLocaleString("en-US", { maximumFractionDigits: 1}) + ' hours per week';
+            document.getElementById("staffMoney").innerHTML = '$' + delivery6.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) + ' per year';
+        }
+    </script>
 </body>
 
 </html>
