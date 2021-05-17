@@ -12,16 +12,20 @@
 </head>
 
 <body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="./assets/img/Kareo_Patient_Collect_Full_Logo.png" width="100%" height="" class="d-inline-block align-top" alt="">
+    </a>
+  </nav>
     <div class="container-fluid" style="padding: 20px;">
-        <h1>Current Solution</h1>
+        <h1>Kareo Patient Collect ROI Calculator</h1>
         <div class="row">
             <div class="card" style="width: 25rem; margin: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">Phone Payments</h5>
                     <p class="card-text">How many minutes does it take on average when you call a patient for a payment?
                     </p>
-                    <input type="text" class="form-control" id="callMin" placeholder="5 min"
-                        onkeyup="phonePayment()">
+                    <input type="text" class="form-control" id="callMin" placeholder="5 min" onkeyup="phonePayment()">
                     <p class="card-text">How many patients do you call on average per week?
                     </p>
                     <input type="text" class="form-control" id="callPatients" placeholder="20 patients"
@@ -41,24 +45,29 @@
                 <div class="card-body">
                     <h5 class="card-title">Data Entry</h5>
                     <p class="card-text">How many payments do you process per week?</p>
-                    <input type="text" class="form-control" id="dataEntryPayments" placeholder="500 payments" onkeyup="dataEntry()">
+                    <input type="text" class="form-control" id="dataEntryPayments" placeholder="500 payments"
+                        onkeyup="dataEntry()">
                     <p class="card-text">Is your current solution integrated?</p>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="integrated" id="integratedYes" value="Yes" onkeyup="dataEntry()">
+                        <input class="form-check-input" type="radio" name="integrated" id="integratedYes" value="Yes"
+                            onkeyup="dataEntry()">
                         <label class="form-check-label" for="integratedYes">
                             Yes
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="integrated" id="integratedNo" value="No" onkeyup="dataEntry()" checked>
+                        <input class="form-check-input" type="radio" name="integrated" id="integratedNo" value="No"
+                            onkeyup="dataEntry()" checked>
                         <label class="form-check-label" for="integratedNo">
                             No
                         </label>
                     </div>
                     <p class="card-text">How many cards do you typically enter in manually per week?</p>
-                    <input type="text" class="form-control" id="dataEntryCards" placeholder="10 cards" onkeyup="dataEntry()">
+                    <input type="text" class="form-control" id="dataEntryCards" placeholder="10 cards"
+                        onkeyup="dataEntry()">
                     <p class="card-text">How many card errors occur when running charges weekly?</p>
-                    <input type="text" class="form-control" id="dataEntryCardErrors" placeholder="3 errors" onkeyup="dataEntry()">
+                    <input type="text" class="form-control" id="dataEntryCardErrors" placeholder="3 errors"
+                        onkeyup="dataEntry()">
                 </div>
             </div>
             <div class="card" style="width: 25rem; margin: 10px;">
@@ -80,7 +89,8 @@
                                 placeholder="$0.01 per email" onkeyup="deliveryMethod()"></div>
                     </div>
                     <p class="card-text">How many mail statements do you print and stuff per week?</p>
-                    <input type="text" class="form-control" id="mailTime" placeholder="100 statements" onkeyup="deliveryMethod()">
+                    <input type="text" class="form-control" id="mailTime" placeholder="100 statements"
+                        onkeyup="deliveryMethod()">
                 </div>
             </div>
         </div>
@@ -117,11 +127,22 @@
                     <h5 id="staffHours"> XX hours per week</h5>
                     <p> for your front office staff, which can translate to</p>
                     <h5 id="staffMoney"> $XX per year!</h5>
-                    <p class="text-muted" style="font-size: 12px;">*estimate based on current postage pricing and average hourly pay
+                    <p class="text-muted" style="font-size: 12px;">*estimate based on current postage pricing and
+                        average hourly pay
                         for front office staff</p>
                 </div>
             </div>
         </div>
+        <div id="screenshot">
+            <video autoplay></video>
+            <img src="" alt="" />
+            <canvas style="display:none;"></canvas>
+            <input type="text" class="form-control" id="practiceName" placeholder="Practice Name">
+            <button id="screenshot-button">
+                Save Data
+            </button>
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
@@ -135,23 +156,23 @@
             phoneFinal = Number(phone1 * phone2) + Number(phone3 * phone4)
             document.getElementById("phoneMin").innerHTML = phoneFinal.toLocaleString("en-US", { maximumFractionDigits: 0 }) + ' minutes';
             document.getElementById("phoneHour").innerHTML = (Number(phoneFinal / 60) * 4).toLocaleString("en-US", { maximumFractionDigits: 1 }) + ' hours per month!';
-        console.log(phone1, phone2, phoneFinal)
+            console.log(phone1, phone2, phoneFinal)
         }
         function dataEntry() {
             dataEntry1 = document.getElementById("dataEntryPayments").value;
             dataEntry2 = document.getElementById("dataEntryCards").value;
-            dataEntry3 = dataEntry2*3
+            dataEntry3 = dataEntry2 * 3
             dataEntry3 = document.getElementById("dataEntryCardErrors").value;
             let dataEntryFinal
             if (document.getElementById("integratedYes").checked == true) {
                 dataEntryValues = Number(dataEntry1) + Number(dataEntry2 * 3) + Number(dataEntry3 * 5)
-                dataEntryFinal = Number(dataEntryValues/60)
+                dataEntryFinal = Number(dataEntryValues / 60)
             }
             else {
                 dataEntryValues = Number(dataEntry1 * 2) + Number(dataEntry2 * 3) + Number(dataEntry3 * 5)
-                dataEntryFinal = Number(dataEntryValues/60)
+                dataEntryFinal = Number(dataEntryValues / 60)
             }
-            document.getElementById("dataEntryHour").innerHTML = dataEntryFinal.toLocaleString("en-US", {maximumFractionDigits: 1} ) + ' hours per week!';
+            document.getElementById("dataEntryHour").innerHTML = dataEntryFinal.toLocaleString("en-US", { maximumFractionDigits: 1 }) + ' hours per week!';
             return
         }
         function deliveryMethod() {
@@ -171,9 +192,31 @@
             //3.05 = (5 min per statement * $15/hourlywage) + $0.55 for postage + $.01 for paper
             document.getElementById("deliveryWeek").innerHTML = '$' + deliveryWeek.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) + ' per week';
             document.getElementById("deliveryYear").innerHTML = '$' + deliveryYear.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) + ' per year!';
-            document.getElementById("staffHours").innerHTML = ((Number(delivery5) * 5) / 60).toLocaleString("en-US", { maximumFractionDigits: 1}) + ' hours per week';
+            document.getElementById("staffHours").innerHTML = ((Number(delivery5) * 5) / 60).toLocaleString("en-US", { maximumFractionDigits: 1 }) + ' hours per week';
             document.getElementById("staffMoney").innerHTML = '$' + delivery6.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 }) + ' per year';
         }
+    </script>
+    <script>
+        const screenshotBtn = document.querySelector("#screenshot-button")
+        const image = document.querySelector('#screenshot img')
+        const video = document.querySelector('#screenshot video')
+        const canvas = document.createElement('canvas')
+
+        screenshotBtn.onclick = function () {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawimage(video, 0, 0);
+            let dataUrl = canvas.toDataURL('image/png');
+            image.src = dataUrl;
+
+            var hrefElement = document.createElement('a');
+            hrefElement.href = dataUrl;
+            document.body.append(hrefElement);
+            hrefElement.download = document.getElementById('practiceName').value + '.png'
+            hrefElement.click();
+            hrefElement.remove();
+        }
+
     </script>
 </body>
 
