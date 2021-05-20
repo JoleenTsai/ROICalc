@@ -298,27 +298,6 @@
             });
         }
     </script>
-    <script>
-        const screenshotBtn = document.querySelector("#screenshot-button")
-        const image = document.querySelector('#screenshot img')
-        const video = document.querySelector('#screenshot video')
-        const canvas = document.createElement('canvas')
-
-        screenshotBtn.onclick = function() {
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            canvas.getContext('2d').drawimage(video, 0, 0);
-            let dataUrl = canvas.toDataURL('image/png');
-            image.src = dataUrl;
-
-            var hrefElement = document.createElement('a');
-            hrefElement.href = dataUrl;
-            document.body.append(hrefElement);
-            hrefElement.download = document.getElementById('practiceName').value + '.png'
-            hrefElement.click();
-            hrefElement.remove();
-        }
-    </script>
 </body>
 
 </html>
