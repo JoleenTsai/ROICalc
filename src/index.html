@@ -174,21 +174,22 @@
                         <div class="row">
                             <div class="col" style="background-color: #f8f8f8; padding: 10px;">
                                 <div class="row" style="padding: 10px 0px 10px 0px;">
-                                    <div class="col-6">
-                                        <p class="card-text">How many text statements do you send and how much do you pay per text?
-                                        </p>
-                                    </div>
-                                    <div class="col-3"><input type="text" class="form-control" id="sentText" placeholder="100 statements" onkeyup="deliveryMethod()"></div>
-                                    <div class="col-3"><input type="text" class="form-control" id="textPay" placeholder="$0.01 per text" onkeyup="deliveryMethod()"></div>
+                                    <p class="card-text">How many text statements do you send and how much do you pay per text?
+                                    </p>
                                 </div>
                                 <div class="row" style="padding: 10px 0px 10px 0px;">
-                                    <div class="col-6">
-                                        <p class="card-text">How much do you pay to send email statements?</p>
-                                    </div>
-                                    <div class="col-3"><input type="text" class="form-control" id="sentEmail" placeholder="100 statements" onkeyup="deliveryMethod()"></div>
-                                    <div class="col-3"><input type="text" class="form-control" id="emailPay" placeholder="$0.01 per email" onkeyup="deliveryMethod()"></div>
+                                    <div class="col"><input type="text" class="form-control" id="sentText" placeholder="100 statements" onkeyup="deliveryMethod()"></div>
+                                    <div class="col"><input type="text" class="form-control" id="textPay" placeholder="$0.01 per text" onkeyup="deliveryMethod()"></div>
                                 </div>
                                 <div class="row" style="padding: 10px 0px 10px 0px;">
+                                    <p class="card-text">How much do you pay to send email statements?</p>
+                                </div>
+                                <div class="row" style="padding: 10px 0px 10px 0px;">
+                                    <div class="col"><input type="text" class="form-control" id="sentEmail" placeholder="100 statements" onkeyup="deliveryMethod()"></div>
+                                    <div class="col"><input type="text" class="form-control" id="emailPay" placeholder="$0.01 per email" onkeyup="deliveryMethod()"></div>
+                                </div>
+
+                                <div class="row" style="padding: 20px 0px 10px 0px;">
                                     <div class="col">
                                         <p class="card-text">How many mail statements do you print and stuff per week?</p>
                                     </div>
@@ -202,14 +203,14 @@
                                 <div class="row" style="text-align: center;">
                                     <div class="col">
                                         <div class="row" style="display: flex; justify-content: center; align-items: center;">
-                                            <img src="./assets/img/money_outline.svg" alt="clock" style="width: 35%;">
+                                            <img src="./assets/img/money_outline.svg" alt="money" style="width: 30%;">
                                             <h5 id="deliveryWeek" style="color: #8e9e43;">$XX</h5>
                                             <p>per week</p>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="row" style="display: flex; justify-content: center; align-items: center">
-                                            <img src="./assets/img/money_outline.svg" alt="clock" style="width: 35%;">
+                                            <img src="./assets/img/money_outline.svg" alt="money" style="width: 30%;">
                                             <h5 id="deliveryYear" style="color: #8e9e43;">$XX</h5>
                                             <p>per year</p>
                                         </div>
@@ -261,7 +262,7 @@
             }
             document.getElementById("dataEntryHour").innerHTML = dataEntryFinal.toLocaleString("en-US", {
                 maximumFractionDigits: 1
-            }) + ' hours per week!';
+            }) + ' hours';
             return
         }
 
@@ -290,11 +291,11 @@
             });
             document.getElementById("staffHours").innerHTML = ((Number(delivery5) * 5) / 60).toLocaleString("en-US", {
                 maximumFractionDigits: 1
-            }) + ' hours per week';
+            }) + ' hours';
             document.getElementById("staffMoney").innerHTML = '$' + delivery6.toLocaleString("en-US", {
                 maximumFractionDigits: 2,
                 minimumFractionDigits: 2
-            }) + ' per year';
+            });
         }
     </script>
     <script>
