@@ -241,9 +241,10 @@
                             </div>
                             <p style="margin-bottom: 1px;">for your front office staff, which can translate to <b id="staffMoney">$XX</b> per year!</p>
                             <p class="text-muted" style="font-size: small;">*estimate based on current postage pricing and average hourly pay for front office staff</p>
-                            <div class="row" id="deliveryValue" style="display: none;">
-                                <p style="display: flex; justify-content: center; align-items: center;">
-                                    Unlimited text and email statements at no cost to you. Start driving digital payments to increase your patient revenue by 20-30% on average!</p>
+                            <div class="row" id="deliveryValue" style="display: none; justify-content: center; align-items: center;">
+                                <p style="justify-content: center; align-items: center;">
+                                    Unlimited text and email statements at no cost to you. Start driving digital payments to increase your patient revenue by
+                                    <span style="color: #599ab9;">20-30%</span> on average! </p>
                             </div>
                         </div>
                     </div>
@@ -274,7 +275,7 @@
             console.log(phone1, phone2, phone3, phone4);
 
             if (phone1 != 0 && phone2 != 0 && phone3 != 0 && phone4 != 0) {
-                document.getElementById("phoneValue").style.display = "flex ";
+                document.getElementById("phoneValue").style.display = "flex";
             }
         }
 
@@ -295,8 +296,7 @@
             }) + ' hours';
 
             if (dataEntry1 != 0 && dataEntry2 != 0 && dataEntry3 != 0) {
-                document.getElementById("dataEntryValue").style.display = `flex`;
-                document.getElementById("dataEntryValue").style.justifyContent = `center`;
+                document.getElementById("dataEntryValue").style.display = "flex";
             }
         }
 
@@ -331,7 +331,7 @@
                 minimumFractionDigits: 2
             });
             if (delivery1 != 0 && delivery2 != 0 && delivery3 != 0 && delivery4 != 0 && delivery5 != 0 && delivery6 != 0) {
-                document.getElementById("deliveryValue").style.display = `flex`;
+                document.getElementById("deliveryValue").style.display = "flex";
             }
         }
     </script>
